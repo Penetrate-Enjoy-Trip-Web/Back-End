@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/trip.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <!-- title -->
+        <div id="header-title">
+            <a href="main.html"><span>Enjoy Trip</span></a>
+        </div>
+        <!-- header-right -->
+        <div id="header-right">
+            <!-- menu -->
+            <div id="header-right-menu">
+                <!-- 공지사항 -->
+                <div><a href="#"><span>공지사항</span></a></div>
+                <!-- 공유게시판 -->
+                <div><a href="#"><span>공유게시판</span></a></div>
+                <!-- 관광지역 -->
+                <div><a href="trip.html"><span>관광지역</span></a></div>
+            </div>
+            <!-- login -->
+            <!-- <div id="header-right-login">
+                <div><a href="/login.html"><span>로그인</span></a></div>
+                <div><a href="/makeId.html"><span>회원가입</span></a></div>
+            </div> 
+            -->
+        </div>
+    </header>
+
+    <main>
+        <!-- 중앙 left content end -->
+        <!-- 중앙 center content end -->
+        <div class="col-md-9">
+            <div class="alert alert-primary mt-3 text-center fw-bold" role="alert">
+            전국 관광지 정보
+            </div>
+            <!-- 관광지 검색 start -->
+            <form class="d-flex my-3" onsubmit="return false;" role="search">
+            <select id="search-area" class="form-select me-2">
+                <option value="0" selected>검색 할 지역 선택</option>
+            </select>
+            <select id="search-content-id" class="form-select me-2">
+                <option value="0" selected>관광지 유형</option>
+                <option value="12">관광지</option>
+                <option value="14">문화시설</option>
+                <option value="15">축제공연행사</option>
+                <option value="25">여행코스</option>
+                <option value="28">레포츠</option>
+                <option value="32">숙박</option>
+                <option value="38">쇼핑</option>
+                <option value="39">음식점</option>
+            </select>
+            <input
+                id="search-keyword"
+                class="form-control me-2"
+                type="search"
+                placeholder="검색어"
+                aria-label="검색어"
+            />
+            <button id="btn-search" class="btn btn-outline-success" type="button">검색</button>
+            </form>
+
+            <!-- kakao map start -->
+            <!-- <div id="map" class="mt-3" style="width: 100%; height: 400px"></div> -->
+            
+            <!-- 지도를 표시할 div 입니다 -->
+            <div id="trip-main-container">
+                <div id="trip-main-rvWrapper">
+                    <div id="trip-main-roadview"></div> <!-- 로드뷰를 표시할 div 입니다 -->
+                    <div id="trip-main-close" title="로드뷰닫기" onclick="closeRoadview()"><span class="img"></span></div>
+                </div>
+                <div id="trip-main-mapWrapper">
+                    <div id="trip-main-map"></div> <!-- 지도를 표시할 div 입니다 -->
+                    <div id="trip-main-roadviewControl" onclick="setRoadviewRoad()"></div>
+                </div>
+            </div>
+            <!-- kakao map end -->
+
+            <div class="row">
+            <table class="table table-striped" style="display: none">
+                <thead>
+                <tr>
+                    <th>대표이미지</th>
+                    <th>관광지명</th>
+                    <th>주소</th>
+                    <th>위도</th>
+                    <th>경도</th>
+                </tr>
+                </thead>
+                <tbody id="trip-list"></tbody>
+            </table>
+            </div>
+            <!-- 관광지 검색 end -->
+        </div>
+        <!-- 중앙 content end -->
+    </main>
+    
+    <!-- footer -->
+    <footer>
+        <!-- logo -->
+        <span>
+            <img src="./img/ssafy_logo.png" alt="ssafy">
+        </span>
+        <!-- 이용약관 등 -->
+        <!-- 관계자 위치, 연락처, 이메일 -->
+        <span>Copyright © SSAFY 2023 Daejeon
+            <br>Designed by thdqudgns & Brojjun</span>
+        </footer>
+        
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8c9a98c64f1f3ac2b761ffbe0e2e30e3"></script>
+        <script src="./js/trip.js"></script>
+</body>
+</html>

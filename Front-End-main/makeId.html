@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <!-- title -->
+      <div id="header-title">
+        <a href="main.html"><span>Enjoy Trip</span></a>
+      </div>
+      <!-- header-right -->
+      <div id="header-right">
+        <!-- menu -->
+        <div id="header-right-menu">
+          <!-- 공지사항 -->
+          <div>
+            <a href="#"><span>공지사항</span></a>
+          </div>
+          <!-- 공유게시판 -->
+          <div>
+            <a href="#"><span>공유게시판</span></a>
+          </div>
+          <!-- 관광지역 -->
+          <div>
+            <a href="trip.html"><span>관광지역</span></a>
+          </div>
+        </div>
+        <!-- login -->
+        <div id="header-right-login">
+                <!-- 로그인 -->
+                <div><a href="/login.html" id="loginCheck">로그인</a></div>
+                <!-- 회원가입 -->
+                <div><a href="/makeId.html" id="registerCheck">회원가입</a></div>
+                <!-- 로그아웃 -->
+                <div><a href="main.html" onclick="logout()" id="logoutCheck">로그아웃</a></div>
+                <!-- 내 정보 조회 -->
+                <div><a href="/mypage.html" id="mypageCheck">내 정보 조회</a></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- main -->
+    <main>
+      <section>
+        <!-- 메인 이미지 + 관관지역 검색 페이지 이동 -->
+        <article id="main-background-first">
+          <div class="background-image">
+            <div class="dark-overlay"></div>
+            <a href="#" class="background-image-button">여행을 떠나볼까요?</a>
+          </div>
+        </article>
+        <!-- 관광지 사진 -->
+        <article id="main-background-second"></article>
+        <!-- 공지사항 -->
+        <article id="main-background-third"></article>
+        <!-- 공유게시판 -->
+        <article id="main-background-fourth"></article>
+      </section>
+    </main>
+
+    <!-- modal -->
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>회원가입</h3>
+        <form>
+          <label for="name">이름</label>
+          <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required />
+          <label for="name">아이디</label>
+          <input type="id" id="id" name="id" placeholder="아이디를 입력하세요" required />
+          <button type="id" onclick="checkId()">중복검사</button><br /><br />
+          <label for="email">이메일:</label>
+          <input type="email" id="email" name="email" placeholder="이메일을 입력하세요" required />
+          <label for="password">비밀번호:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="비밀번호를 입력하세요"
+            required
+          />
+        </form>
+        <input type="submit" value="가입하기" onclick="makeId()" />
+        <input type="submit" value="회원찾기" onclick="closeModal()" />
+      </div>
+    </div>
+
+    <script type="text/javascript" src="/js/modal.js"></script>
+    <!-- footer -->
+    <footer>
+      <!-- logo -->
+      <span>
+        <img src="./img/ssafy_logo.png" alt="ssafy" />
+      </span>
+      <!-- 이용약관 등 -->
+      <!-- 관계자 위치, 연락처, 이메일 -->
+      <span>Copyright © SSAFY 2023 Daejeon <br />Designed by thdqudgns & Brojjun</span>
+    </footer>
+    <!-- loginCheck -->
+    <script src="./js/loginCheck.js"></script>
+  </body>
+</html>

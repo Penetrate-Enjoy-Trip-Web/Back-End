@@ -1,0 +1,80 @@
+/* 
+    mypage-main
+    mypage-section
+    mypage-title
+    mypage-content
+    mypage-button
+    btn-update
+    btn-delete
+ */
+#mypage-main {
+    height: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#mypage-section {
+    border: 5px solid rgb(91, 91, 91);
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#mypage-title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#mypage-content {
+    width: 90%;
+    height: 40%;
+    border: 1px solid black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#mypage-content > div {
+    padding: 15px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#mypage-section > div:nth-last-child(){
+    text-align: right;
+}
+
+#mypage-button > button {
+    width: 100px;
+    height: 40px;
+}
+
+#btn-update {
+    background-color: rgb(54, 67, 249);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#btn-delete {
+    background-color: rgb(255, 77, 77);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}

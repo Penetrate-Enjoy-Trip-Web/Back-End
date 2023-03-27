@@ -1,0 +1,122 @@
+/* 여행, 바다 느낌의 색감 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px; /* 추가 */
+  box-shadow: 0px 0px 10px #ccc;
+}
+
+/* 모달창이 화면 중앙에 위치하도록 변경 */
+@media screen and (min-width: 768px) {
+  .modal-content {
+    margin: 10% auto;
+  }
+}
+
+.close {
+  color: #555;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-head {
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.modal-head > h3 {
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+form {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 50px auto;
+  max-width: 500px;
+  padding: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="id"] {
+  width: 92%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+  color: #555;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="id"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px #1a73e8;
+}
+
+input[type="submit"],
+button[type="id"] {
+  background-color: #5792e0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input[type="submit"]:hover,
+button[type="id"]:hover {
+  background-color: #466eab;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.modal1 {
+  display: none;
+}
+
+.modal2 {
+  display: none;
+}
