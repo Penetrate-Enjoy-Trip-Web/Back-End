@@ -10,4 +10,8 @@ public interface UserDao {
 
 	void insertUser(User user) throws SQLException;
 
+	User selectId(String id) throws SQLException;
+
+	void deleteUser(String id) throws SQLException;
+
 }

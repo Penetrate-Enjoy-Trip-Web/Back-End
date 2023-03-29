@@ -51,5 +51,36 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(++idx, user.getEmail());
 			pstmt.executeUpdate();
 		}
+		
+	}
+	@Override
+	public User selectId(String id) throws SQLException {
+		try (
+			Connection con = db.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("select * from user where id = ?");
+		){
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			User user = new User();
+			if(rs.next()) {
+				user.setId(rs.getString("id"));
+				user.setPw(rs.getString("pw"));
+				user.setEmail(rs.getString("email"));
+				user.setName(rs.getString("name"));
+				return user;
+			}
+			else return null;
+		}
+		
+	}
+	@Override
+	public void deleteUser(String id) throws SQLException {
+		try(
+				Connection con = db.getConnection();
+				PreparedStatement pstmt = con.prepareStatement("delete from user where id = ?");
+		){
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		}
 	}
 }

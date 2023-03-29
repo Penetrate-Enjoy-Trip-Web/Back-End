@@ -11,10 +11,9 @@
     <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/main.css" />
     <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/footer.css" />
     <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/modal.css" />
-    <!-- 왜 root를 적어줘야 하는가 -->
   </head>
   <body>
-  
+    
     <%@ include file="../include/header.jsp" %>
 
     <!-- main -->
@@ -36,34 +35,30 @@
       </section>
     </main>
 
+    <!-- modal -->
 
-   <!-- modal -->
-   <div id="modal" class="modal">
-    <div class="modal-content">
-      <a href="${root}/attraction?action=main"><span class="close" onclick="closeModal()">&times;</span></a>
-      <h3>로그인</h3>
-      <form action="${root}/user?action=login" method="post">
-      	<!-- <input type="hidden" var="action" value="login" /> 왜 안넘어 가는가-->
-        <label for="name">아이디</label>
-        <input type="id" id="id" name="id" placeholder="아이디를 입력하세요" required />
-        <label for="password">비밀번호:</label>
-        <input
-          type="password"
-          id="password"
-          name="pw"
-          placeholder="비밀번호를 입력하세요"
-          required
-        />
-      	<input type="submit" value="로그인" />
-      </form>
-      	<a href="${root}/user?action=find"><input type="submit" value="회원찾기" /></a>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <a href="${root}/attraction?action=main"><span class="close">&times;</span></a>
+        <h3>회원가입</h3>
+        <form method="post" action="${root}/user?action=register">
+          <label for="name">이름</label>
+          <div>${user.name}</div><br>
+          <label for="name">아이디</label>
+          <div>${user.id}</div><br>
+          <label for="email">이메일:</label>
+          <div>${user.email}</div><br>
+          <label for="password">비밀번호:</label>
+          <div>${user.pw}</div><br>
+        </form>
+         <a href="${root}/user?action=deluser&id=${user.id}"><input type="submit" value="회원탈퇴" /></a>
+        </div>
     </div>
-  </div>
 
-  
+    <script type="text/javascript" src="/Enjoy_trip_with_servlet/js/modal.js"></script>
+    
     <%@ include file="../include/footer.jsp" %>
     
-    <script type="text/javascript" src="/Enjoy_trip_with_servlet/js/modal.js"></script>
     <!-- loginCheck -->
     <script src="/Enjoy_trip_with_servlet/js/loginCheck.js"></script>
   </body>

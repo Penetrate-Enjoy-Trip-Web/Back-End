@@ -8,4 +8,8 @@ public interface UserService {
 
 	void register(User user) throws Exception;
 
+	User find(String id) throws Exception;
+
+	void delUser(String id) throws Exception;
+
 }

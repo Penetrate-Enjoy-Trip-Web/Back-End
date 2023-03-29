@@ -33,7 +33,7 @@
             <!-- 로그아웃 -->
             <div><a href="${root}/user?action=logout" onclick="logout()" id="logoutCheck">로그아웃</a></div>
             <!-- 내 정보 조회 -->
-            <div><a href="#" id="mypageCheck">내 정보 조회</a></div>
+            <div><a href="${root}/user?action=mypage&userId=${user.id}" id="mypageCheck">내 정보 조회</a></div>
             </c:if>
 
         </div>

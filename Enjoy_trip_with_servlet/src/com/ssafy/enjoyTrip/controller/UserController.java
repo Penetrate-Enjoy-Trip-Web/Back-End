@@ -37,6 +37,8 @@ public class UserController extends HttpServlet {
 		if (action == null || action.equals("")) {
 			response.sendRedirect(root + "/main/main.jsp");
 		}
+
+
 		
 		System.out.println(action);
 		switch(action) {
@@ -56,7 +58,61 @@ public class UserController extends HttpServlet {
 			session.invalidate();
 			response.sendRedirect(root + "/main/main.jsp");
 			break;
+		case "findForm": // 회원 찾기
+			request.getRequestDispatcher("/user/find.jsp").forward(request, response);
+			break;
+		case "find":
+			request.getRequestDispatcher(find(request,response)).forward(request, response);
+			break;
+		case "mypage":
+			request.getRequestDispatcher(myPage(request,response)).forward(request, response);
+			break;
+		case "deluser":
+			delUser(request,response);
+			response.sendRedirect(root + "/main/main.jsp");
+			break;
 		}
+	}
+
+	private void delUser(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			userService.delUser(request.getParameter("id"));
+			session.invalidate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private String myPage(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = userService.find(request.getParameter("userId"));
+			request.setAttribute("user",user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "/error/error.jsp";
+		}
+		return "/user/mypage.jsp";
+	}
+
+
+
+	private String find(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = userService.find(request.getParameter("id"));
+			String pw = user.getPw();
+			if(pw != null) {
+				request.setAttribute("pw", pw);
+			}
+			else {
+				request.setAttribute("pw","아이디가 없습니다.");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "/error/error.jsp";
+		}
+		return "/user/find.jsp";
 	}
 
 	private String register(HttpServletRequest request, HttpServletResponse response) {

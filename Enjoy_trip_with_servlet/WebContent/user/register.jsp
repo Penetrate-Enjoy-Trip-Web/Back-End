@@ -59,7 +59,7 @@
           />
 	      <input type="submit" value="가입하기" onclick="makeId()" />
         </form>
-        <input type="submit" value="회원찾기" onclick="closeModal()" />
+        <a href="${root}/user?action=find"><input type="submit" value="회원찾기" onclick="closeModal()" /></a>
       </div>
     </div>
 
