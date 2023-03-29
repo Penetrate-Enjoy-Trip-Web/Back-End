@@ -39,7 +39,7 @@
 
     <div id="modal" class="modal">
       <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
+        <a href="${root}/attraction?action=main"><span class="close">&times;</span></a>
         <h3>회원가입</h3>
         <form method="post" action="${root}/user?action=register">
           <label for="name">이름</label>

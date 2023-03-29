@@ -56,6 +56,10 @@ public class AttractionController extends HttpServlet{
 		case "trip":
 			request.getRequestDispatcher("/trip/trip.jsp").forward(request, response);
 			break;
+		
+		case "main":
+			request.getRequestDispatcher("/main/main.jsp").forward(request, response);
+			break;
 		}
 		
 		

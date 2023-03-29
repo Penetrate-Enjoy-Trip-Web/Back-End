@@ -40,7 +40,7 @@
    <!-- modal -->
    <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <a href="${root}/attraction?action=main"><span class="close" onclick="closeModal()">&times;</span></a>
       <h3>로그인</h3>
       <form action="${root}/user?action=login" method="post">
       	<!-- <input type="hidden" var="action" value="login" /> 왜 안넘어 가는가-->
