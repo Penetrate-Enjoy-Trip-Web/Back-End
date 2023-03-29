@@ -4,7 +4,7 @@
 <footer>
     <!-- logo -->
     <span>
-        <img src="/Enjoy_trip_with_servlet/img/ssafy_logo.png" alt="ssafy">
+        <img src="${root}/img/ssafy_logo.png" alt="ssafy">
     </span>
     <!-- 이용약관 등 -->
     <!-- 관계자 위치, 연락처, 이메일 -->

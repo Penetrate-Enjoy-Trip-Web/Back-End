@@ -21,14 +21,21 @@
         </div>
         <!-- login -->
         <div id="header-right-login">
+
+            <c:if test="${empty user}">
             <!-- 로그인 -->
-            <div><a href="#" id="loginCheck">로그인</a></div>
+            <div><a href="${root}/user?action=loginForm" id="loginCheck">로그인</a></div>
             <!-- 회원가입 -->
-            <div><a href="#" id="registerCheck">회원가입</a></div>
+            <div><a href="${root}/user?action=registerForm" id="registerCheck">회원가입</a></div>
+            </c:if>
+
+            <c:if test="${not empty user}">
             <!-- 로그아웃 -->
-            <div><a href="#" onclick="logout()" id="logoutCheck">로그아웃</a></div>
+            <div><a href="${root}/user?action=logout" onclick="logout()" id="logoutCheck">로그아웃</a></div>
             <!-- 내 정보 조회 -->
             <div><a href="#" id="mypageCheck">내 정보 조회</a></div>
+            </c:if>
+
         </div>
     </div>
 </header>
