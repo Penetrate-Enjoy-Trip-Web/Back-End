@@ -9,4 +9,6 @@ public interface AttractionDao {
 
 	List<Attraction> selectSido() throws SQLException;
 
+	List<Attraction> selectAttractionBySearch(Attraction attraction) throws SQLException;
+
 }

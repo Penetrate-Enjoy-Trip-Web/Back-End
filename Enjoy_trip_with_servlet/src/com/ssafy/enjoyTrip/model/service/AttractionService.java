@@ -6,6 +6,8 @@ import com.ssafy.enjoyTrip.dto.Attraction;
 
 public interface AttractionService {
 
-	List<Attraction> getList() throws Exception;
+	List<Attraction> getSidoList() throws Exception;
+
+	List<Attraction> getAttractionList(Attraction attraction) throws Exception;
 
 }

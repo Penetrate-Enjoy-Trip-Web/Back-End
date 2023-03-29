@@ -16,7 +16,11 @@ public class AttractionServiceImpl implements AttractionService {
 		return instance;
 	}
 	@Override
-	public List<Attraction> getList() throws Exception {
+	public List<Attraction> getSidoList() throws Exception {
 		return attractionDao.selectSido();
+	}
+	@Override
+	public List<Attraction> getAttractionList(Attraction attraction) throws Exception {
+		return attractionDao.selectAttractionBySearch(attraction);
 	}
 }

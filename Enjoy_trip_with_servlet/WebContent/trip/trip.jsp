@@ -29,7 +29,7 @@
             <select id="search-area" name="sido_code" class="form-select me-2">
                 <option value="0" selected>검색 할 지역 선택</option>
                 <c:forEach var="sido" items="${sidoList}">
-                <option value="${sido.sido_code}">${sido.sido_name}</option>
+                <option value="${sido.sidoCode}">${sido.sidoName}</option>
                 </c:forEach>
                 
             </select>
@@ -51,7 +51,7 @@
                 placeholder="검색어"
                 aria-label="검색어"
             />
-            <button id="btn-search" class="btn btn-outline-success" type="button">검색</button>
+            <button id="btn-search" class="btn btn-outline-success" type="button"  onclick="searchAttraction()">검색</button>
             </form>
 
             <!-- kakao map start -->
