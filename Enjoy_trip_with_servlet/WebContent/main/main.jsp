@@ -36,7 +36,8 @@
     
 	<%@ include file="../include/footer.jsp" %>
 
-    <!-- loginCheck -->
+    <!-- loginCheck 
     <script src="/Enjoy_trip_with_servlet/js/loginCheck.js"></script>
+    -->
 </body>
 </html>

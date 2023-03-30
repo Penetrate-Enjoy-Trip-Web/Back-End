@@ -36,7 +36,6 @@
     </main>
 
     <!-- modal -->
-
     <div id="modal" class="modal">
       <div class="modal-content">
         <a href="${root}/attraction?action=main"><span class="close">&times;</span></a>

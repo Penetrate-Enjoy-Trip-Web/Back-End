@@ -26,13 +26,20 @@
 // 지역, 유형, 검색어 얻기.
 // 위 데이터를 가지고 공공데이터에 요청.
 // 받은 데이터를 이용하여 화면 구성.
+
+
 function searchAttraction() {
     let searchUrl = `http://localhost:8080/Enjoy_trip_with_servlet/attraction?action=attraction`;
 
     let areaCode = document.getElementById("search-area").value;
     let contentTypeId = document.getElementById("search-content-id").value;
     let keyword = document.getElementById("search-keyword").value;
-
+    
+    if(areaCode == "") areaCode = "3";
+    if(contentTypeId == "") contentTypeId = "12";
+    
+    console.log(areaCode);
+    
     searchUrl += `&areaCode=${areaCode}`;
     searchUrl += `&contentTypeId=${contentTypeId}`;
     searchUrl += `&keyword=${keyword}`;
@@ -281,4 +288,8 @@ function setRoadviewRoad() {
 function closeRoadview() {
     var position = marker.getPosition();
     toggleMapWrapper(true, position);
+}
+
+window.onload = function() {
+	searchAttraction();
 }

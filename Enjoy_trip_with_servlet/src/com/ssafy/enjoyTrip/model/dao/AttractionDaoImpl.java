@@ -59,8 +59,8 @@ public class AttractionDaoImpl implements AttractionDao {
 			String title = attraction.getTitle();
 			
 			int idx = 0;
-			pstmt.setString(++idx, "%" + sidoCode + "%");
-			pstmt.setString(++idx, "%" + contentTypeId + "%");
+			pstmt.setString(++idx, sidoCode);
+			pstmt.setString(++idx, contentTypeId);
 			pstmt.setString(++idx, "%" + title + "%");
 			ResultSet rs = pstmt.executeQuery();
 			
