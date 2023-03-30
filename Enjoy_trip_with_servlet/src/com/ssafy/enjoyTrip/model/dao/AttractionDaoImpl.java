@@ -51,6 +51,9 @@ public class AttractionDaoImpl implements AttractionDao {
 								+ " AND B.sido_code LIKE ?"
 								+ " AND B.content_type_id LIKE ?"
 								+ " AND B.title LIKE ?"
+								+ " AND B.title != ''"
+								+ " AND B.first_image != ''"
+								+ " AND B.first_image2 != ''"
 								+ " ORDER BY B.title"
 								+ " limit 0, 50");
 		) {
@@ -58,9 +61,19 @@ public class AttractionDaoImpl implements AttractionDao {
 			String contentTypeId = attraction.getContentTypeId();
 			String title = attraction.getTitle();
 			
+			
 			int idx = 0;
-			pstmt.setString(++idx, sidoCode);
-			pstmt.setString(++idx, contentTypeId);
+			
+			if (sidoCode.equals("")) 
+				pstmt.setString(++idx, "%" + "" + "%");				
+			else 
+				pstmt.setString(++idx, sidoCode);				
+			
+			if (contentTypeId.equals("")) 
+				pstmt.setString(++idx, "%" + "" + "%");				
+			else 
+				pstmt.setString(++idx, contentTypeId);
+			
 			pstmt.setString(++idx, "%" + title + "%");
 			ResultSet rs = pstmt.executeQuery();
 			

@@ -19,39 +19,39 @@
     <main>
         <!-- 중앙 left content end -->
         <!-- 중앙 center content end -->
-        <div class="col-md-9">
-            <div class="alert alert-primary mt-3 text-center fw-bold" role="alert">
+        <div class="">
+            <div class="" role="alert">
             전국 관광지 정보
             </div>
             <!-- 관광지 검색 start -->
-            <form class="d-flex my-3" onsubmit="return false;" role="search">
-            <input type="hidden" name="action" value="search">
-            <select id="search-area" name="sido_code" class="form-select me-2">
-                <option value="0" selected>검색 할 지역 선택</option>
-                <c:forEach var="sido" items="${sidoList}">
-                <option value="${sido.sidoCode}">${sido.sidoName}</option>
-                </c:forEach>
-                
-            </select>
-            <select id="search-content-id" name="content_type_id" class="form-select me-2">
-                <option value="0" selected>관광지 유형</option>
-                <option value="12">관광지</option>
-                <option value="14">문화시설</option>
-                <option value="15">축제공연행사</option>
-                <option value="25">여행코스</option>
-                <option value="28">레포츠</option>
-                <option value="32">숙박</option>
-                <option value="38">쇼핑</option>
-                <option value="39">음식점</option>
-            </select>
-            <input
-                id="search-keyword"
-                class="form-control me-2"
-                type="search"
-                placeholder="검색어"
-                aria-label="검색어"
-            />
-            <button id="btn-search" class="btn btn-outline-success" type="button"  onclick="searchAttraction()">검색</button>
+            <form class="" onsubmit="return false;" role="search">
+	            <input type="hidden" name="action" value="search">
+	            <select id="search-area" name="sido_code" class="">
+	                <option value="0" selected>검색 할 지역 선택</option>
+	                <c:forEach var="sido" items="${sidoList}">
+	                <option value="${sido.sidoCode}">${sido.sidoName}</option>
+	                </c:forEach>
+	                
+	            </select>
+	            <select id="search-content-id" name="content_type_id" class="">
+	                <option value="0" selected>관광지 유형</option>
+	                <option value="12">관광지</option>
+	                <option value="14">문화시설</option>
+	                <option value="15">축제공연행사</option>
+	                <option value="25">여행코스</option>
+	                <option value="28">레포츠</option>
+	                <option value="32">숙박</option>
+	                <option value="38">쇼핑</option>
+	                <option value="39">음식점</option>
+	            </select>
+	            <input
+	                id="search-keyword"
+	                class=""
+	                type="search"
+	                placeholder="검색어"
+	                aria-label="검색어"
+	            />
+	            <button id="btn-search" class="" type="button"  onclick="searchAttraction()">검색</button>
             </form>
 
             <!-- kakao map start -->
@@ -71,14 +71,16 @@
             <!-- kakao map end -->
 
             <div class="row">
-            <table class="table table-striped" style="display: none">
+            <table class="" style="display: none">
                 <thead>
                 <tr>
                     <th>대표이미지</th>
                     <th>관광지명</th>
                     <th>주소</th>
+                    <!--  
                     <th>위도</th>
                     <th>경도</th>
+                    -->
                 </tr>
                 </thead>
                 <tbody id="trip-list"></tbody>

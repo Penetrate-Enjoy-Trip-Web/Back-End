@@ -11,7 +11,7 @@
     height:100%;
 }
 
-#trip-main-container {overflow:hidden;height:800px;position:relative;}
+#trip-main-container {overflow:hidden;height:600px;position:relative;}
 #trip-main-mapWrapper {width:100%;height:800px;z-index:1;}
 #trip-main-rvWrapper {width:50%;height:800px;top:0;right:0;position:absolute;z-index:0;}
 #trip-main-container.view_roadview #trip-main-mapWrapper {width: 50%;}

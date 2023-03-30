@@ -61,6 +61,10 @@ public class AttractionController extends HttpServlet{
 			response.setContentType("application/json;charset=utf-8");
 			response.getWriter().write(getAttractionList(request, response));
 			break;		
+		case "mainAttraction":
+			response.setContentType("application/json;charset=utf-8");
+			response.getWriter().write(getAttractionList(request, response));
+			break;		
 		case "main":
 			request.getRequestDispatcher("/main/main.jsp").forward(request, response);
 			break;
@@ -72,40 +76,23 @@ public class AttractionController extends HttpServlet{
 		String contentTypeId = request.getParameter("contentTypeId");
 		String title = request.getParameter("keyword");
 		
-		if(sidoCode == null) sidoCode = "";
-		if(contentTypeId == null) contentTypeId = "";
+		if(sidoCode == null || sidoCode.equals("0")) sidoCode = "";
+		if(contentTypeId == null || contentTypeId.equals("0")) contentTypeId = "";
 		if(title == null) title = "";
+		
+//		System.out.println("sidoCode : " + sidoCode );
 		
 		Attraction attraction = new Attraction();
 		attraction.setSidoCode(sidoCode);
 		attraction.setContentTypeId(contentTypeId);
 		attraction.setTitle(title);
 		
-		
-		
-//		StringBuffer result = new StringBuffer();
-//		result.append("{\"result\":[");
-//			List<Attraction> attractionList = attractionService.getAttractionList(attraction);
-//			for (Attraction attrac : attractionList) {
-//				result.append("[{\"value\": \"" + attrac.getContentId() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getOverview() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getContentTypeId() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getTitle() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getAddr1() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getZipcode() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getFirstImage() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getFirstImage2() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getSidoCode() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getLatitude() + "\"},");
-//				result.append("{\"value\": \"" + attrac.getLongitude() + "\"}],");
-//			}
-//			result.append("]}");
-			try {
-				return new Gson().toJson(attractionService.getAttractionList(attraction));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return "{\"error\": \"error\"}";
-			}
+		try {
+			return new Gson().toJson(attractionService.getAttractionList(attraction));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "{\"error\": \"error\"}";
+		}
 	}
 }

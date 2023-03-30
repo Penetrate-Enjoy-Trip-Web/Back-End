@@ -26,7 +26,20 @@
                 </div>
             </article>
             <!-- 관광지 사진 -->
-            <!-- <article id="main-background-second"></article> -->
+            <article id="main-background-second">
+	            <div class="row">
+		            <table class="" style="display: none">
+		                <thead>
+		                <tr>
+		                    <th>대표이미지</th>
+		                    <th>관광지명</th>
+		                    <th>주소</th>
+		                </tr>
+		                </thead>
+		                <tbody id="trip-list"></tbody>
+		            </table>
+	            </div>
+            </article>
             <!-- 공지사항 -->
             <!-- <article id="main-background-third"></article> -->
             <!-- 공유게시판 -->
@@ -36,8 +49,6 @@
     
 	<%@ include file="../include/footer.jsp" %>
 
-    <!-- loginCheck 
-    <script src="/Enjoy_trip_with_servlet/js/loginCheck.js"></script>
-    -->
+    <script src="/Enjoy_trip_with_servlet/js/main.js"></script>
 </body>
 </html>

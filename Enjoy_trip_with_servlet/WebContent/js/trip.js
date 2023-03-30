@@ -1,32 +1,8 @@
-//// index page 로딩 후 전국의 시도 설정.
-//const serviceKey = "leH4E9ahSVtSPIZO4MIbtOkGAJeK0KmkTUWKDo%2Fa8soDl7j%2B%2FFr84MK8ZnQ7iqF2Y9vz%2FUgHlQCj095kvEjgRg%3D%3D";
-//let areaUrl =
-//    "https://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=" +
-//    serviceKey +
-//    "&numOfRows=20&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json";
-//// fetch(areaUrl, { method: "GET" }).then(function (response) { return response.json() }).then(function (data) { makeOption(data); });
-//fetch(areaUrl, { method: "GET" })
-//.then((response) => response.json())
-//.then((data) => makeOption(data));
-//
-//function makeOption(data) {
-//let areas = data.response.body.items.item;
-//    // console.log(areas);
-//let sel = document.getElementById("search-area");
-//areas.forEach((area) => {
-//    let opt = document.createElement("option");
-//    opt.setAttribute("value", area.code);
-//    opt.appendChild(document.createTextNode(area.name));
-//
-//    sel.appendChild(opt);
-//});
-//}
+window.onload = function() {
+	searchAttraction();
+}
 
-// 검색 버튼을 누르면..
-// 지역, 유형, 검색어 얻기.
-// 위 데이터를 가지고 공공데이터에 요청.
-// 받은 데이터를 이용하여 화면 구성.
-
+var markers = [];
 
 function searchAttraction() {
     let searchUrl = `http://localhost:8080/Enjoy_trip_with_servlet/attraction?action=attraction`;
@@ -34,12 +10,7 @@ function searchAttraction() {
     let areaCode = document.getElementById("search-area").value;
     let contentTypeId = document.getElementById("search-content-id").value;
     let keyword = document.getElementById("search-keyword").value;
-    
-    if(areaCode == "") areaCode = "3";
-    if(contentTypeId == "") contentTypeId = "12";
-    
-    console.log(areaCode);
-    
+
     searchUrl += `&areaCode=${areaCode}`;
     searchUrl += `&contentTypeId=${contentTypeId}`;
     searchUrl += `&keyword=${keyword}`;
@@ -52,24 +23,26 @@ function searchAttraction() {
 var positions; // marker 배열.
 function makeList(trips) {
     document.querySelector("table").setAttribute("style", "display: ;");
-    console.dir(trips);
+    console.dir(positions);
 //    let trips = data.response.body.items.item;
     let tripList = ``;
     positions = [];
     trips.forEach((area) => {
         tripList += `
-        <tr onclick="moveCenter(${area.longitude}, ${area.latitude});">
+        <tr onclick="moveCenter(${area.latitude}, ${area.longitude});">
         	<td><img src="${area.firstImage}" width="100px"></td>
             <td>${area.title}</td>
             <td>${area.addr1}</td>
+            <!-- 
+        	<td>${area.latitude}</td>
             <td>${area.longitude}</td>
-            <td>${area.latitude}</td>
+        	-->
         </tr>
         `;
 
         let markerInfo = {
 	        title: area.title,
-	        latlng: new kakao.maps.LatLng(area.longitude, area.latitude),
+	        latlng: new kakao.maps.LatLng(area.latitude, area.longitude),
         };
         positions.push(markerInfo);
     });
@@ -86,7 +59,7 @@ var overlayOn = false, // 지도 위에 로드뷰 오버레이가 추가된 상�
     mapContainer = document.getElementById('trip-main-map'), // 지도를 표시할 div 입니다 
     rvContainer = document.getElementById('trip-main-roadview'); //로드뷰를 표시할 div 입니다
 
-var mapCenter = new kakao.maps.LatLng(36.35536, 127.298294), // 지도의 중심좌표
+var mapCenter = new kakao.maps.LatLng(37.79013266000000000, 127.52624250000000000), // 지도의 중심좌표
     mapOption = {
         center: mapCenter, // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
@@ -109,7 +82,7 @@ kakao.maps.event.addListener(rv, 'position_changed', function() {
 
     // 지도의 중심을 현재 로드뷰의 위치로 설정합니다
     map.setCenter(rvPosition);
-
+    map.relayout();
     // 지도 위에 로드뷰 도로 오버레이가 추가된 상태이면
     if(overlayOn) {
         // 마커의 위치를 현재 로드뷰의 위치로 설정합니다
@@ -118,9 +91,13 @@ kakao.maps.event.addListener(rv, 'position_changed', function() {
 });
 
 function displayMarker() {
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(null);
+	}
+	markers = [];
     // 마커 이미지의 이미지 주소입니다
     var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-
+    marker = [];
     for (var i = 0; i < positions.length; i++) {
         // 마커 이미지의 이미지 크기 입니다
         var imageSize = new kakao.maps.Size(24, 35);
@@ -135,14 +112,16 @@ function displayMarker() {
         title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
         image: markerImage, // 마커 이미지
         });
+        
+        markers.push(marker);
     }
-
+    
     // 첫번째 검색 정보를 이용하여 지도 중심을 이동 시킵니다
     map.setCenter(positions[0].latlng);
     }
 
     function moveCenter(lat, lng) {
-    map.setCenter(new kakao.maps.LatLng(lat, lng));
+    	map.setCenter(new kakao.maps.LatLng(lat, lng));
     }
 
 // 마커 이미지를 생성합니다
@@ -290,6 +269,3 @@ function closeRoadview() {
     toggleMapWrapper(true, position);
 }
 
-window.onload = function() {
-	searchAttraction();
-}
