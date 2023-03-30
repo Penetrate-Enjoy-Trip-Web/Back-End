@@ -13,7 +13,7 @@
         <!-- menu -->
         <div id="header-right-menu">
             <!-- 공지사항 -->
-            <div><a href="#">공지사항</a></div>
+            <div><a href="${root}/board?action=list">공지사항</a></div>
             <!-- 공유게시판 -->
             <div><a href="#">공유게시판</a></div>
             <!-- 관광지역 -->
