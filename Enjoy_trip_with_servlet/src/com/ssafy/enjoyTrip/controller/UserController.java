@@ -1,6 +1,8 @@
 package com.ssafy.enjoyTrip.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -37,8 +39,6 @@ public class UserController extends HttpServlet {
 		if (action == null || action.equals("")) {
 			response.sendRedirect(root + "/main/main.jsp");
 		}
-
-
 		
 		System.out.println(action);
 		switch(action) {
@@ -86,9 +86,27 @@ public class UserController extends HttpServlet {
 			request.setAttribute("user",user);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "/error/error.jsp";
+			error(request,response);
+			return "/user/modify.jsp";
 		}
 		return "/user/modify.jsp";
+	}
+
+	private void error(HttpServletRequest request, HttpServletResponse response) {
+	    // alert 메시지를 출력하는 JavaScript 코드를 작성합니다.
+
+	    // HTTP 응답의 MIME 타입을 설정합니다.
+	    response.setContentType("text/html");
+	    
+	    // alert 메시지를 출력하는 JavaScript 코드를 클라이언트에게 전송합니다.
+	    PrintWriter out;
+	    try {
+	        out = response.getWriter();
+	        out.print("<script>alert('Your input is wrong...'); location.href='" + request.getContextPath()+ "/user/login.jsp'</script>");
+	        out.flush();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
 
 	private String modify(HttpServletRequest request, HttpServletResponse response) {
@@ -105,7 +123,9 @@ public class UserController extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "/error/error.jsp";
+			//자바스크립트 호출 함수
+			error(request,response);
+			return "/user/login.jsp";
 		}
 		return "/user/mypage.jsp";
 	}
@@ -117,7 +137,8 @@ public class UserController extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "/error/error.jsp";
+			error(request,response);
+			return "/main/main.jsp";
 		}
 		return "/main/main.jsp";
 	}
@@ -128,7 +149,8 @@ public class UserController extends HttpServlet {
 			request.setAttribute("user",user);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "/error/error.jsp";
+			error(request,response);
+			return "/user/mypage.jsp";
 		}
 		return "/user/mypage.jsp";
 	}
@@ -148,7 +170,8 @@ public class UserController extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "/error/error.jsp";
+			error(request,response);
+			return "/user/find.jsp";
 		}
 		return "/user/find.jsp";
 	}
@@ -165,8 +188,10 @@ public class UserController extends HttpServlet {
 			return "/user?action=loginForm";
 		} catch (Exception e) {
 			e.printStackTrace();
+			error(request,response);
 		}
-		return "/error/error.jsp";
+		error(request,response);
+		return "/user?action=loginForm";
 	}
 
 	private String checkIdPw(HttpServletRequest request, HttpServletResponse response) {
@@ -180,11 +205,17 @@ public class UserController extends HttpServlet {
 				session.setAttribute("user", user);
 				Cookie id = new Cookie("id", user.getId());
 				response.addCookie(id);
-			} else {
-				return "/error/loginError.jsp";
+			} 
+			else {
+				error(request,response);
+				System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+				return "/user/login.jsp";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+			error(request,response);
+			return "/user/login.jsp";
 		}
 		return "/main/main.jsp";
 	}
