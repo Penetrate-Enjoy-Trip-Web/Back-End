@@ -83,4 +83,22 @@ public class UserDaoImpl implements UserDao{
 			pstmt.executeUpdate();
 		}
 	}
+	@Override
+	public void updateUser(User user) throws SQLException {
+		try(
+		Connection con = db.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(
+				"update user set pw=?, name=?, email=? where id = ?");
+		){
+			int cnt = 0;
+			pstmt.setString(++cnt, user.getPw());
+			pstmt.setString(++cnt, user.getName());
+			pstmt.setString(++cnt, user.getEmail());
+			pstmt.setString(++cnt, user.getId());
+			
+			pstmt.executeUpdate();
+		}
+			
+		
+	}
 }

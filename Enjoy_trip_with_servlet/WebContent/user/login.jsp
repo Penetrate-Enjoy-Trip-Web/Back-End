@@ -56,7 +56,7 @@
         />
       	<input type="submit" value="로그인" />
       </form>
-      	<a href="${root}/user?action=find"><input type="submit" value="회원찾기" /></a>
+      	<a href="${root}/user?action=findForm"><input type="submit" value="회원찾기" /></a>
     </div>
   </div>
 

@@ -12,4 +12,6 @@ public interface UserService {
 
 	void delUser(String id) throws Exception;
 
+	void modifyUser(User user) throws Exception;
+
 }

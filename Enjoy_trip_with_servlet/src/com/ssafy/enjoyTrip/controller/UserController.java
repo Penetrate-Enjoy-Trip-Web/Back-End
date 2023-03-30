@@ -68,20 +68,58 @@ public class UserController extends HttpServlet {
 			request.getRequestDispatcher(myPage(request,response)).forward(request, response);
 			break;
 		case "deluser":
-			delUser(request,response);
-			response.sendRedirect(root + "/main/main.jsp");
+			response.sendRedirect(root + delUser(request,response));
 			break;
+		case "modifyForm":
+			request.getRequestDispatcher(modifyForm(request,response)).forward(request, response);
+			break;
+		case "modify":
+			request.getRequestDispatcher(modify(request,response)).forward(request, response);
+			break;
+			
 		}
 	}
 
-	private void delUser(HttpServletRequest request, HttpServletResponse response) {
+	private String modifyForm(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = userService.find(request.getParameter("userId"));
+			request.setAttribute("user",user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "/error/error.jsp";
+		}
+		return "/user/modify.jsp";
+	}
+
+	private String modify(HttpServletRequest request, HttpServletResponse response) {
+		User user = new User();
+		user.setId(request.getParameter("id"));
+		user.setPw(request.getParameter("pw"));
+		user.setName(request.getParameter("name"));
+		user.setEmail(request.getParameter("email"));
+	
+		try {
+			userService.modifyUser(user);
+			user = userService.checkIdPw(user);
+			request.setAttribute("user", user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "/error/error.jsp";
+		}
+		return "/user/mypage.jsp";
+	}
+
+	private String delUser(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			userService.delUser(request.getParameter("id"));
 			session.invalidate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return "/error/error.jsp";
 		}
+		return "/main/main.jsp";
 	}
 
 	private String myPage(HttpServletRequest request, HttpServletResponse response) {

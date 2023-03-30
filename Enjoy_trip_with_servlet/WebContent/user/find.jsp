@@ -50,10 +50,9 @@
 				<label for="name">비밀번호</label>
 				<div>${pw}</div>
 				<br>
-				
-				
 				<input type="submit" value="비밀번호 찾기" />
 			</form>
+			<a href="${root}/user?action=loginForm""><input type="submit" value="로그인하러 가기" /></a>
 		</div>
 	</div>
 

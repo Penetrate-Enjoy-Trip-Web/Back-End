@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
 	public void delUser(String id) throws Exception {
 		userDao.deleteUser(id);		
 	}
+	@Override
+	public void modifyUser(User user) throws Exception {
+		userDao.updateUser(user);
+		
+	}
 }

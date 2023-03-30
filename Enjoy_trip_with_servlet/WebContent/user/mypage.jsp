@@ -39,7 +39,8 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <a href="${root}/attraction?action=main"><span class="close">&times;</span></a>
-        <h3>회원가입</h3>
+        <br>
+        <h3>${user.id}님의 정보</h3>
         <form method="post" action="${root}/user?action=register">
           <label for="name">이름</label>
           <div>${user.name}</div><br>
@@ -51,6 +52,7 @@
           <div>${user.pw}</div><br>
         </form>
          <a href="${root}/user?action=deluser&id=${user.id}"><input type="submit" value="회원탈퇴" /></a>
+         <a href="${root}/user?action=modifyForm&id=${user.id}"><input type="submit" value="정보수정" /></a>
         </div>
     </div>
 
