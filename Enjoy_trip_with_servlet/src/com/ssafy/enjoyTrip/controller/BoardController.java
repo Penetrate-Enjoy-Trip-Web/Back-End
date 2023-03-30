@@ -92,7 +92,7 @@ public class BoardController extends HttpServlet {
 		board.setModifyDate(modifyDate);
 
 		try {
-			boardService.write(board);
+			boardService.modify(board);
 			return "/board?action=detail&no=" + board.getNo();
 		} catch (Exception e) {
 			e.printStackTrace();
