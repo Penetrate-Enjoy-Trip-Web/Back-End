@@ -21,6 +21,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public Board detail(int no) throws Exception {
+		boardDao.viewCountUp(no);
 		return boardDao.selectByNo(no);
 	}
 	@Override

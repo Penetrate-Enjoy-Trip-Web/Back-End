@@ -11,4 +11,5 @@ public interface BoardDao {
 	int insert(Board board) throws SQLException;
 	void updateByNo(Board board) throws SQLException;
 	void delete(int no) throws SQLException;
+	void viewCountUp(int no) throws SQLException;
 }

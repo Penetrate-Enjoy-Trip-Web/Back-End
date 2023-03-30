@@ -110,4 +110,16 @@ public class BoardDaoImpl implements BoardDao {
 			pstmt.executeUpdate();
 		}
 	}
+	@Override
+	public void viewCountUp(int no) throws SQLException {
+		try(
+			Connection con = db.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("update board"
+					+ " set viewCount = viewCount + 1"
+					+ " where no = ?");
+		) {
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+		}
+	}
 }
