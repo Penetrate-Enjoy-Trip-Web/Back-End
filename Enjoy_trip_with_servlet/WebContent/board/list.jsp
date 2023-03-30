@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ㄴ<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,22 @@
     
     <main>
     <h2>글 목록</h2>
+    	<table>
+    	<tr>
+    		<th>글 번호</th>
+    		<th>제목</th>
+    		<th>작성자</th>
+    		<th>작성날짜</th>
+    		<th>조회수</th>
+    	</tr>
+    	<c:forEach var="data" items="boards">
+    		<td>${data.num}</td>
+    		<td><a href="${root}.board?action=detail?num=${data.num}">${data.title}</a></td>
+    		<td>${data.writer}</td>
+    		<td>${data.createDate}</td>
+    		<td>${data.viewCount}</td>
+    	</c:forEach>
+    	</table>
     </main>
     
     <%@ include file="../include/footer.jsp" %>
