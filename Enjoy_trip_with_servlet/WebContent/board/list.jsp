@@ -37,11 +37,11 @@
 		    	</tr>
 	    	</c:forEach>
 	    	</table>
-	    	<c:if test="">
 	    	<div id="btn-div">
+	    	<c:if test="${not empty user}">
 	    	<a href="${root}/board?action=writeForm"><button id="write-btn">글 작성</button></a>
-	    	</div>
 	    	</c:if>
+	    	</div>
 	    </div>
     </main>
     

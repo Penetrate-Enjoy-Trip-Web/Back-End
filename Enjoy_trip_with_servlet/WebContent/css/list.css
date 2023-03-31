@@ -19,6 +19,22 @@ main {
 	text-overflow: ellipsis;
 }
 
+.board-no{
+	min-width: 60px;
+}
+.board-title{
+	min-width: 300px;
+}
+.board-writer{
+	min-width: 80px;
+}
+.board-createDate{
+	min-width: 100px;
+}
+.board-viewCount{
+	min-width: 60px;
+}
+
 table, tr, th, td {
 	border: 1px solid #000;
 	border-collapse: collapse;
