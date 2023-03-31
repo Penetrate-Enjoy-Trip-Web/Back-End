@@ -12,9 +12,8 @@
 
 	<%@ include file="../include/header.jsp" %>
     
-    <main>
-    <h2>글 작성</h2>
-    </main>
+	
+   
     
     <%@ include file="../include/footer.jsp" %>
         
