@@ -1,13 +1,14 @@
 # Enjoy Trip 
-(Perfection: 60%)
 
 ### 🛠 Skiis 🛠
-<img src="https://img.shields.io/badge/HTML-E34F26?style=flat&logo=HTML&logoColor=white"/> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>   
-<img src="https://img.shields.io/badge/Java-F7A900?style=flat&logo=Java&logoColor=orange"/> <img src="https://img.shields.io/badge/Servlet-F7A900?style=flat&logo=Servlet&logoColor=orange"/> <img src="https://img.shields.io/badge/JSP-F7A900?style=flat&logo=JSP&logoColor=orange"/>
+**Front :** <img src="https://img.shields.io/badge/HTML-E34F26?style=flat&logo=HTML&logoColor=white"/> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/>   
+**Back :** <img src="https://img.shields.io/badge/Java-F7A900?style=flat&logo=Java&logoColor=orange"/> <img src="https://img.shields.io/badge/Servlet-F7A900?style=flat&logo=Servlet&logoColor=orange"/> <img src="https://img.shields.io/badge/JSP-F7A900?style=flat&logo=JSP&logoColor=orange"/> <img src="https://img.shields.io/badge/MySQL-0077FF?style=flat&logo=MySQL&logoColor=orange"/>
 
 ### :bulb: Maker - [Brojjun](https://github.com/Brojjun) & [thdqudgns](https://github.com/thdqudgns)
+
 주의사항 :   
-trip.js 파일의 2행에는 ***<본인의 data.go.kr의 '한국관광공사_국문 관광정보 서비스_GW' 서비스키>*** 를 추가해야 한다.   
+~~trip.js 파일의 2행에는 ***<본인의 data.go.kr의 '한국관광공사_국문 관광정보 서비스_GW' 서비스키>*** 를 추가해야 한다.~~   
+-> data.go.kr에서 API로 가져오던 Data들을 DB에 저장하여, DB에서 가져왔다.   
 trip.html 파일의 120행에는 ***<본인의 KaKao API 인증 키>*** 를 추가해야 한다.
 
 ### Introduce
@@ -23,13 +24,43 @@ trip.html 파일의 120행에는 ***<본인의 KaKao API 인증 키>*** 를 추�
 
 ---
 
-### 0. 공통 Class : DBUtil
+### 사용할 DB Table
+```sql
+-- 제공받은 테이블 : 
+select * from attraction_description; -- 관광지 설명 data
+select * from attraction_detail; -- 관광지 정보 생성 data
+select * from attraction_info; -- 관광지 정보 data
+select * from gugun; -- 구/군 data
+select * from sido; -- 시/도 data
+
+-- 생성한 테이블 : 사용자, 게시판
+create table `user` (
+    id varchar(20) not null,
+    pw varchar(20) not null,
+    name varchar(30) not null,
+    email varchar(40) not null,
+    primary key(id)
+);
+
+create table `board` (
+    `no` int auto_increment, -- 글번호
+    `title` varchar(30) not null, -- 글 제목
+    `content` varchar(5000) not null, -- 글 내용
+    `writer` varchar(30) not null, -- 작성자
+    `createDate` DATETIME DEFAULT (current_time), -- 작성일
+    `modifyDate` DATETIME DEFAULT (current_time), -- 수정일
+    `viewCount` int default 0, -- 조회수
+    primary key(no)
+);
+```
+
+### 공통 Class : DBUtil
 - `Class.forName("com.mysql.cj.jdbc.Driver");` 로 MySQL Driver 로딩
 - `DriverManager.getConnection(url, user, pwd);` 로 MySQL 연결
 
-### 1. 관광정보 관련 MVC - Attraction~
-- 컨트롤러 : AttractionController
-- 서비스 : AttractionService, AttractionServiceImpl
+### 1. 관광정보 관련 MVC - Attraction ~
+- Controller : AttractionController
+- Service : AttractionService, AttractionServiceImpl
   - **시/도 코드 조회** : `List<Attraction> getSidoList() throws Exception;`
   - **관광지 정보 조회** : `List<Attraction> getAttractionList(Attraction attraction) throws Exception;`
 - DAO : AttractionDao, AttractionDaoImpl
@@ -51,9 +82,9 @@ private String latitude; // 위도
 private String longitude; // 경도
 ```
 
-### 2. 사용자 관련 MVC - User~
-- 컨트롤러 : UserController
-- 서비스 : UserService, UserServiceImpl
+### 2. 사용자 관련 MVC - User ~
+- Controller : UserController
+- Service : UserService, UserServiceImpl
 	- **로그인시 사용자 확인** : `User checkIdPw(User user) throws Exception;`
 	- **회원가입** : `void register(User user) throws Exception;`
 	- **비밀번호 찾기** : `User find(String id) throws Exception;`
@@ -73,9 +104,9 @@ private String name;
 private String email;
 ```
 
-### 3. 게시판 관련 MVC - Board~
-- 컨트롤러 : BoardController
-- 서비스 : BoardService, BoardServiceImpl
+### 3. 게시판 관련 MVC - Board ~
+- Controller : BoardController
+- Service : BoardService, BoardServiceImpl
   - **게시글 목록 조회** : `List<Board> list() throws Exception;`
   - **게시글 조회** : `Board detail(int no) throws Exception;`
   - **게시글 작성** : `void write(Board board) throws Exception;`
@@ -98,3 +129,7 @@ private String createDate; // 작성일
 private String modifyDate; // 수정일
 private int  viewCount; // 
 ```
+
+---
+
+# 추가된 기능
