@@ -26,7 +26,8 @@
 				<input type="text" id="title" name="title" placeholder="제목을 입력해주세요" required />
 				
 				<label for="writer">작성자</label> 
-				<input type="text" disabled="disabled" id="writer"name="writer" value="${user.id}" required> 
+				<input type="text" disabled="disabled" id="writer" name="writer" value="${user.id}" required> 
+				<input type="hidden" id="writer" name="writer" value="${user.id}" required> 
 				
 				<label for="content">내용</label>
 				<textarea id="content" name="content" rows="10"	placeholder="내용을 입력해주세요" required></textarea>
@@ -49,7 +50,7 @@
 				
 				<label for="writer">작성자</label> 
 				<input type="text" disabled="disabled" id="writer"name="writer" value="${board.writer}" required> 
-				
+				<input type="hidden" id="writer" name="writer" value="${user.id}" required> 
 				<label for="content">내용</label>
 				<textarea id="content" name="content" rows="10" value="${board.content}" required></textarea>
 
