@@ -1,110 +1,103 @@
+main {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
 .container {
-  max-width: 800px;
-  margin: 50px;
-  padding: 40px;
+	min-width: 1000px;
+	margin: 50px;
+	padding: 40px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+	width:1000px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
 label {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 10px;
 }
 
-input[type="text"],
-textarea {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 2px solid black;
-  margin-bottom: 20px;
+input[type="text"], textarea {
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 2px solid black;
+	margin-bottom: 20px;
 }
 
-input[type="text"]:focus,
-textarea:focus {
-  outline: none;
-  border-color: black;
-  box-shadow: 0 0 5px black;
+input[type="text"]:focus, textarea:focus {
+	outline: none;
+	border-color: black;
+	box-shadow: 0 0 5px black;
 }
 
-button[type="submit"],
-button[type="reset"],
-a.button {
-  padding: 10px 20px;
-  background-color: rgb(84, 170, 227);;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-right: 10px;
+button[type="submit"], button[type="reset"], a.button {
+	padding: 10px 20px;
+	background-color: rgb(84, 170, 227);;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-right: 10px;
 }
 
 a.button {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 button[type="reset"] {
-  background-color: rgb(84, 170, 227);
+	background-color: rgb(84, 170, 227);
 }
 
 a.button.delete {
-  background-color: rgb(84, 170, 227);
+	background-color: rgb(84, 170, 227);
 }
 
-button[type="submit"]:hover,
-button[type="reset"]:hover,
-a.button:hover {
-  opacity: 0.8;
+button[type="submit"]:hover, button[type="reset"]:hover, a.button:hover
+	{
+	opacity: 0.8;
 }
 
-button[type="submit"]:active,
-button[type="reset"]:active,
-a.button:active {
-  opacity: 0.6;
+button[type="submit"]:active, button[type="reset"]:active, a.button:active
+	{
+	opacity: 0.6;
 }
 
 @media only screen and (max-width: 480px) {
-  label,
-  input[type="text"],
-  textarea {
-    font-size: 14px;
-    border-radius: 10px;
-    border-color: black;
-  }
-  
-  input[type="text"]:focus,
-  textarea:focus {
-    outline: none;
-    border-color: black;
-    box-shadow: 0 0 5px black;
-  }
-  
-  button[type="submit"],
-  button[type="reset"],
-  a.button {
-    font-size: 14px;
-  }
+	label, input[type="text"], textarea {
+		font-size: 14px;
+		border-radius: 10px;
+		border-color: black;
+	}
+	input[type="text"]:focus, textarea:focus {
+		outline: none;
+		border-color: black;
+		box-shadow: 0 0 5px black;
+	}
+	button[type="submit"], button[type="reset"], a.button {
+		font-size: 14px;
+	}
 }
 
 .buttons {
-  display: flex;
-  justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
-.buttons button[type="submit"],
-.buttons button[type="reset"],
-.buttons a.button {
-  margin: 5px;
+.buttons button[type="submit"], .buttons button[type="reset"], .buttons a.button
+	{
+	margin: 5px;
 }
 
-.bt{
-	border : 1px solid white;
-	background: white;
+a.buttion {
+	border: 1px solid black;
 }
