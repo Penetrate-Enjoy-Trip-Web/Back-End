@@ -1,0 +1,66 @@
+/* 전체 영역 스타일링 */
+body {
+  background-color: white;
+  color: #495057;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* 메인 영역 스타일링 */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+/* 게시글 제목 스타일링 */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: rgb(84, 170, 227);
+}
+
+/* 테이블 스타일링 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 50px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #dee2e6;
+  text-align: center;
+}
+
+th {
+  background-color: #e9ecef;
+  font-weight: 700;
+}
+
+td.content {
+  text-align: left;
+}
+
+/* 버튼 스타일링 */
+button {
+  background-color: rgb(84, 170, 227);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #3c80cf;
+  border: 1px solid #3c80cf;
+}

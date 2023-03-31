@@ -12,42 +12,29 @@
     <title>Document</title>
 </head>
 <body>
-
 	<%@ include file="../include/header.jsp" %>
-	
-	
-    <div id = "contenBox">
-    <br>
-    <br>
-    	<table>
-    		<tr>
-    		<th colspan="5"><h1>${board.title}</h1></th>
-    		</tr>
-    		<tr>
-    			<th>작성자 : ${board.writer}</th>
-    			<th></th>
-    			<th></th>
-    			<th>게시일 : ${board.createDate}</th>
-    			<th>조회수 : ${board.viewCount}</th>
-    		</tr>
-    		<tr>
-    		<td><br></td>
-    		</tr>
-    		<tr>
-    			<td colspan="5" rowspan="5">${board.content}</td>
-    		</tr>
-    	</table>
-    	<br>
-    	<br>
-    	<br>
-    </div>
-    <a href="${root}/board?action=list"><button>목록</button></a>
-    <a href="${root}/board?action=modifyForm&no=${board.no}"><button>수정</button></a>
-    <a href="${root}/board?action=delete&no=${board.no}"><button>삭제</button></a>
-
-    
-    <%@ include file="../include/footer.jsp" %>
-        
+	<main>
+	<div id="contentBox">
+		<h1>${board.title}</h1>
+		<table>
+			<tr>
+				<th>작성자</th>
+				<td>${board.writer}</td>
+				<th>게시일</th>
+				<td>${board.createDate}</td>
+				<th>조회수</th>
+				<td>${board.viewCount}</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="content">${board.content}</td>
+			</tr>
+		</table>
+		<a href="${root}/board?action=list"><button>목록으로</button></a>
+		<a href="${root}/board?action=modifyForm&no=${board.no}"><button>수정</button></a>
+		<a href="${root}/board?action=delete&no=${board.no}"><button>삭제</button></a>
+	</div>
+	</main>
+	    <%@ include file="../include/footer.jsp" %>
 </body>
 </html>
     

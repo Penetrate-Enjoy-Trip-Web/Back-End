@@ -19,6 +19,8 @@ header {
     white-space: nowrap;
 }
 
+
+
 #header-title {
     float: left;
     min-height: 60px;
@@ -77,4 +79,12 @@ header {
 #header-right-login > div > a:hover {
     color: rgb(84, 170, 227);
     text-decoration: underline;
+}
+
+td.content {
+  text-align: left;
+  height: 500px;	
+  vertical-align: top;
+  padding: 20px;
+
 }
