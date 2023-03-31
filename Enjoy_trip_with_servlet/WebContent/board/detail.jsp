@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/board.css" />
+    <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/header.css">
+    <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/detail.css" />
+    <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/footer.css">
     <title>Document</title>
 </head>
 <body>
