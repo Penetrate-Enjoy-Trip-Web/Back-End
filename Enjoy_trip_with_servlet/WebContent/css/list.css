@@ -1,0 +1,55 @@
+main {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+#board-list {
+	text-align: center;
+}
+
+#list-title {
+	padding: 30px;
+	font-size: 40px;
+	font-weight: bold;
+	max-width: 1200px;
+	min-width: 600px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+table, tr, th, td {
+	border: 1px solid #000;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 10px
+}
+
+tr:nth-child(2n) {
+	background-color: rgb(84, 170, 227, 0.3);
+}
+
+#btn-div{
+	padding: 30px;
+}
+
+#write-btn {
+	align-items: center;
+	padding: 10px 15px;
+	color: #FFF;
+	background-color: rgb(84, 170, 227);
+	font-weight: bold;
+	font-size: 20px;
+	border: none;
+	border-radius: 5px;
+}
+
+#write-btn:hover {
+	color: #111;
+}
+
+.board-link:hover {
+	color: red;
+	text-decoration: underline;
+}

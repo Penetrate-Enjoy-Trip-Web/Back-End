@@ -208,12 +208,10 @@ public class UserController extends HttpServlet {
 			} 
 			else {
 				error(request,response);
-				System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 				return "/user/login.jsp";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 			error(request,response);
 			return "/user/login.jsp";
 		}

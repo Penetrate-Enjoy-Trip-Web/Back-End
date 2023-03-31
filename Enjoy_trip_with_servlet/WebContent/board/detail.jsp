@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/header.css">
-    <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/detail.css" />
+    <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/detail.css">
     <link rel="stylesheet" href="/Enjoy_trip_with_servlet/css/footer.css">
     <title>Document</title>
 </head>
@@ -33,8 +33,8 @@
     		<tr>
     		<td><br></td>
     		</tr>
-    		<tr rowspan="5">
-    			<td colspan="5">${board.content}</td>
+    		<tr>
+    			<td colspan="5" rowspan="5">${board.content}</td>
     		</tr>
     	</table>
     	<br>
