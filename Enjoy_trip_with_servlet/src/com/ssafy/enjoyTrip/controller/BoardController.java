@@ -51,6 +51,12 @@ public class BoardController extends HttpServlet {
 			break;
 		case "modifyForm":
 			// forward
+			int no = Integer.parseInt(request.getParameter("no"));
+			try {
+				request.setAttribute("board", boardService.detail(no));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			request.getRequestDispatcher("/board/write.jsp").forward(request, response);
 			break;
 		case "modify":
