@@ -30,13 +30,10 @@ function makeList(trips) {
     trips.forEach((area) => {
         tripList += `
         <tr onclick="moveCenter(${area.latitude}, ${area.longitude});">
-        	<td><img src="${area.firstImage}" width="100px"></td>
+        	<td><img src="${area.firstImage}" width="100px" ></td>
             <td>${area.title}</td>
             <td>${area.addr1}</td>
-            <!-- 
-        	<td>${area.latitude}</td>
-            <td>${area.longitude}</td>
-        	-->
+        	<td>${area.overview}</td>
         </tr>
         `;
 

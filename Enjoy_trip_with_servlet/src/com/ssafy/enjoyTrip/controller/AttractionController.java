@@ -90,7 +90,6 @@ public class AttractionController extends HttpServlet{
 		try {
 			return new Gson().toJson(attractionService.getAttractionList(attraction));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "{\"error\": \"error\"}";
 		}

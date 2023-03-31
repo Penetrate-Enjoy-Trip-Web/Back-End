@@ -11,14 +11,14 @@ function searchMainAttraction() {
 }
 
 function makeMainList(trips) {
-    document.querySelector("table").setAttribute("style", "display: ;");
     let tripList = ``;
     trips.forEach((area) => {
         tripList += `
-        <tr onclick="moveCenter(${area.latitude}, ${area.longitude});">
+        <tr>
         	<td><img src="${area.firstImage}" width="100px"></td>
             <td>${area.title}</td>
             <td>${area.addr1}</td>
+        	<td>${area.overview}</td>
         </tr>
         `;
     });

@@ -28,15 +28,17 @@
             <!-- 관광지 사진 -->
             <article id="main-background-second">
 	            <div class="row">
-		            <table class="" style="display: none">
+		            <table>
 		                <thead>
 		                <tr>
 		                    <th>대표이미지</th>
 		                    <th>관광지명</th>
 		                    <th>주소</th>
+		                    <th>설명</th>
 		                </tr>
 		                </thead>
-		                <tbody id="trip-list"></tbody>
+		                <tbody id="trip-list">
+		                </tbody>
 		            </table>
 	            </div>
             </article>
