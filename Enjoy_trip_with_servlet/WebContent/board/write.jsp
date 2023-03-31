@@ -47,7 +47,7 @@
 				
 				<label for="title">제목</label> 
 				<input type="text" id="title" name="title" value="${board.title}" required>
-				
+				<input type="hidden" id="no" name="no" value="${board.no}" required> 
 				<label for="writer">작성자</label> 
 				<input type="text" disabled="disabled" id="writer"name="writer" value="${board.writer}" required> 
 				<input type="hidden" id="writer" name="writer" value="${user.id}" required> 

@@ -83,6 +83,7 @@ public class BoardController extends HttpServlet {
 
 	private String modify(HttpServletRequest request, HttpServletResponse response) {
 		Board board = new Board();
+		System.out.println(request.getParameter("no"));
 		board.setNo(Integer.parseInt(request.getParameter("no")));
 		board.setTitle(request.getParameter("title"));
 		board.setContent(request.getParameter("content"));
