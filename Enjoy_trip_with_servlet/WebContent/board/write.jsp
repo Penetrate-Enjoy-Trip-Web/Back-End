@@ -52,10 +52,10 @@
 				<input type="text" disabled="disabled" id="writer"name="writer" value="${board.writer}" required> 
 				<input type="hidden" id="writer" name="writer" value="${user.id}" required> 
 				<label for="content">내용</label>
-				<textarea id="content" name="content" rows="10" value="${board.content}" required></textarea>
+				<textarea id="content" name="content"  rows="10"  required>${board.content}</textarea>
 
 			<div class="buttons">
-				<button type="submit">작성</button>
+				<button type="submit">수정</button>
 				<button type="reset">취소</button>
 			</div>
 		</form>

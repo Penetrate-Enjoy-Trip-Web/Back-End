@@ -30,8 +30,10 @@
 			</tr>
 		</table>
 		<a href="${root}/board?action=list"><button>목록으로</button></a>
+		<c:if test="${user.id == board.writer}">
 		<a href="${root}/board?action=modifyForm&no=${board.no}"><button>수정</button></a>
 		<a href="${root}/board?action=delete&no=${board.no}"><button>삭제</button></a>
+		</c:if>
 	</div>
 	</main>
 	    <%@ include file="../include/footer.jsp" %>
