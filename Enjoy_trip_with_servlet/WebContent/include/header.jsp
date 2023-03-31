@@ -18,7 +18,7 @@
             <!-- 공유게시판 -->
             <div><a href="${root}/board?action=list">공유게시판</a></div>
             <!-- 관광지역 -->
-            <div><a href="#">관광지역</a></div>
+            <div><a href="${root}/attraction?action=trip">관광지역</a></div>
         </div>
         <!-- login -->
         <div id="header-right-login">
