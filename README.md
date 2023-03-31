@@ -33,7 +33,23 @@ trip.html 파일의 120행에는 ***<본인의 KaKao API 인증 키>*** 를 추�
   - **시/도 코드 조회** : `List<Attraction> getSidoList() throws Exception;`
   - **관광지 정보 조회** : `List<Attraction> getAttractionList(Attraction attraction) throws Exception;`
 - DAO : AttractionDao, AttractionDaoImpl
+  - **시/도 코드 조회** : `List<Attraction> selectSido() throws SQLException;`
+  - **관광지 정보 조회** : `List<Attraction> selectAttractionBySearch(Attraction attraction) throws SQLException;`
 - DTO : Attraction
+```java
+private String contentId; // 관광지 코드
+private String overview; // 관광지 설명
+private String contentTypeId; // 관광지 유형 코드
+private String title; // 관광지명
+private String addr1; // 관광지 주소
+private String zipcode; // 관광지 우편번호
+private String firstImage; // 이미지 URL
+private String firstImage2;
+private String sidoCode; // 시도 코드
+private String sidoName; // 시도 이름
+private String latitude; // 위도
+private String longitude; // 경도
+```
 
 ## 2. 사용자 관련 MVC - User~
 - 컨트롤러 : UserController
@@ -44,7 +60,18 @@ trip.html 파일의 120행에는 ***<본인의 KaKao API 인증 키>*** 를 추�
 	- **회원 삭제** : `void delUser(String id) throws Exception;`
 	- **회원 정보 수정** : `void modifyUser(User user) throws Exception;`
 - DAO : UserDao, UserDaoImpl
+	- **로그인시 사용자 확인** : `User selectIdPw(User user) throws SQLException;`
+	- **회원가입** : `void insertUser(User user) throws SQLException;`
+	- **비밀번호 찾기** : `User selectId(String id) throws SQLException;`
+	- **회원 삭제** : `void deleteUser(String id) throws SQLException;`
+	- **회원 정보 수정** : `void updateUser(User user) throws SQLException;`
 - DTO : User
+```java
+private String id;
+private String pw;
+private String name;
+private String email;
+```
 
 ## 3. 게시판 관련 MVC - Board~
 - 컨트롤러 : BoardController
@@ -55,4 +82,19 @@ trip.html 파일의 120행에는 ***<본인의 KaKao API 인증 키>*** 를 추�
   - **게시글 수정** : `void modify(Board board) throws Exception;`
   - **게시글 삭제** : `void delete(int no) throws Exception;`
 - DAO : BoardDao, BoardDaoImpl
+  - **게시글 목록 조회** : `List<Board> selectAll() throws SQLException;`
+  - **게시글 조회** : `Board selectByNo(int no) throws SQLException;`
+  - **게시글 작성** : `void insert(Board board) throws SQLException;`
+  - **게시글 수정** : `void updateByNo(Board board) throws SQLException;`
+  - **게시글 삭제** : `void delete(int no) throws SQLException;`
+  - **조회수 증가** : `void viewCountUp(int no) throws SQLException;`
 - DTO : Board
+```java
+private int  no; // 글번호
+private String title; // 제목
+private String content; // 내용
+private String writer; // 작성자
+private String createDate; // 작성일
+private String modifyDate; // 수정일
+private int  viewCount; // 
+```
